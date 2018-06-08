@@ -12,13 +12,24 @@ body {
     width: 80%;
     margin: auto;
     height: 620px;
-    padding-top: 40px;
+    padding-top: 25px;
     text-align: center;
     background-color: white;
     background-image: url('../img/geometry2.png');
     border: none;
     font-family: cursive, Arial, Helvetica, sans-serif;
     font-size: 25px;
+}
+
+#footer {
+    padding-top: 5px;
+    float: right;
+    font-size: 15px;
+    padding-right: 5px;
+}
+
+a {
+    text-decoration: none;
 }
 
 .checked {
