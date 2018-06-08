@@ -1,33 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html oncontextmenu="return false">
 
 <head>
     <meta charset="utf-8" name="viewport" content="width=device-width initial-scale=1 user-scaleable=1">
     <title>Memory Game</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker">
 </head>
 
-<body>
+<body oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
     <div class="wrapper">
-        <span class="fa fa-star checked"></span><b class="game">0 move(s)</b><i class="fa">&#xf021;</i>
-        <div class="container">
-            <div id="red"><span class="fa fa-book" id="book"></span></div>
-            <div id="green"><span class="fa fa-dollar" id="book"></span></div>
-            <div id="yellow"><span class="fa fa-anchor" id="book"></span></div>
-            <div id="red"><span class="fa fa-book" id="book"></span></div>
-            <div id="green"><span class="fa fa-dollar" id="book"></div>
-            <div id="yellow"><span class="fa fa-anchor" id="book"></span></div>
-            <div id="purple"><span class="fa fa-bug" id="book"></span></div>
-            <div id="orange"><span class="fa fa-android" id="book"></span></div>
-            <div id="purple"><span class="fa fa-bug" id="book"></span></div>
-            <div id="pink"><span class="fa fa-bolt" id="book"></div>
-            <div id="sky-blue"><span class="fa fa-apple" id="book"></span></div>
-            <div id="blue"><span class="fa fa-car" id="book"></span></div>
-            <div id="pink"><span class="fa fa-bolt" id="book"></span></div>
-            <div id="orange"><span class="fa fa-android" id="book"></span></div>
-            <div id="blue"><span class="fa fa-car" id="book"></span></div>
-            <div id="sky-blue"><span class="fa fa-apple" id="book"></span></div>
+        <span class="moves">0</span> move(s)<span class="fa fa-refresh spin" onclick="startGame()"></span>
+        <div class="timer"></div>
+        <div class="container deck" id="card-deck">
+            <div class="card" type="book" data-mode="book"><i class="fa fa-book"></i></div>
+            <div class="card" type="dollar"><i class="fa fa-dollar"></i></div>
+            <div class="card" type="anchor"><i class="fa fa-anchor"></i></div>
+            <div class="card" type="apple"><i class="fa fa-apple"></i></div>
+            <div class="card" type="car"><i class="fa fa-car"></i></div>
+            <div class="card" type="android"><i class="fa fa-android"></i></div>
+            <div class="card" type="bug"><i class="fa fa-bug"></i></div>
+            <div class="card" type="anchor"><i class="fa fa-anchor"></i></div>
+            <div class="card" type="bolt"><i class="fa fa-bolt"></i></div>
+            <div class="card" type="book" data-mode="book"><i class="fa fa-book"></i></div>
+            <div class="card" type="dollar"><i class="fa fa-dollar"></i></div>
+            <div class="card" type="car"><i class="fa fa-car"></i></div>
+            <div class="card" type="bolt"><i class="fa fa-bolt"></i></div>
+            <div class="card" type="android"><i class="fa fa-android"></i></div>
+            <div class="card" type="apple"><i class="fa fa-apple"></i></div>
+            <div class="card" type="bug"><i class="fa fa-bug"></i></div>
         </div>
     </div>
+
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Congratulations 🎉</h2>
+            <a class="close" id="close-icon" href=#>×</a>
+            <div class="content-1">
+                Congratulations you're a winner 🎉🎉
+            </div>
+            <div class="content-2">
+                <p>You made
+                    <span id=finalMove> </span> moves </p>
+                <p>in
+                    <span id=totalTime> </span>
+                </p>
+            </div>
+            <button id="play-again" onclick="playAgain()">
+                    Play again 😄</a>
+                </button>
+        </div>
+    </div>
+
+    <div id="popup2" class="overlay">
+        <div class="popup">
+            <h2>Ooops! Time up</h2>
+            <a class="close" id="close-icon" href=#>×</a>
+            <div class="content-1">
+                Failed Try Again!
+            </div>
+            <button id="play-again" onclick="playAgain()">
+                    Play again 😄</a>
+            </button>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
 </body>
