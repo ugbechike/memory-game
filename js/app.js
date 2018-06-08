@@ -24,7 +24,7 @@ function shuffle(inputArray) {
 
 function refreshMe() {
     cardDeck.innerHTML = "";
-    var fiveMinutes = 60 * 4,
+    var fiveMinutes = 60 * 2,
         display = document.querySelector('.timer');
     startTimer(fiveMinutes, display);
     arrayOfCards = shuffle(arrayOfCards);
@@ -173,7 +173,7 @@ function failedGame() {
 }
 
 function startTimer(duration, display) {
-    var timer = duration,
+    var timer = 0,
         minutes, seconds;
     interval = setInterval(function() {
         minutes = parseInt(timer / 60, 10)
@@ -185,8 +185,8 @@ function startTimer(duration, display) {
         display.textContent = minutes + ":" + seconds;
         time = minutes + ":" + seconds;
 
-        if (--timer < 0) {
-            timer = duration;
+        if (++timer > duration) {
+            timer = 0;
             clearInterval(interval);
             failedGame();
 
